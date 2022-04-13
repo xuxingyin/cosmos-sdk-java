@@ -1,0 +1,68 @@
+/Library/Java/JavaVirtualMachines/jdk-17.0.1.jdk/Contents/Home/bin/java -ea -Didea.test.cyclic.buffer.size=1048576 -javaagent:/Applications/IntelliJ IDEA.app/Contents/lib/idea_rt.jar=49283:/Applications/IntelliJ IDEA.app/Contents/bin -Dfile.encoding=UTF-8 -classpath /Applications/IntelliJ IDEA.app/Contents/lib/idea_rt.jar:/Applications/IntelliJ IDEA.app/Contents/plugins/junit/lib/junit5-rt.jar:/Applications/IntelliJ IDEA.app/Contents/plugins/junit/lib/junit-rt.jar:/Users/jackxu/IdeaProjects/cosmos-sdk-java-edao/target/test-classes:/Users/jackxu/IdeaProjects/cosmos-sdk-java-edao/target/classes:/Users/jackxu/.m2/repository/com/squareup/okhttp3/okhttp/4.9.3/okhttp-4.9.3.jar:/Users/jackxu/.m2/repository/com/squareup/okio/okio/2.8.0/okio-2.8.0.jar:/Users/jackxu/.m2/repository/org/jetbrains/kotlin/kotlin-stdlib-common/1.4.0/kotlin-stdlib-common-1.4.0.jar:/Users/jackxu/.m2/repository/org/jetbrains/kotlin/kotlin-stdlib/1.4.10/kotlin-stdlib-1.4.10.jar:/Users/jackxu/.m2/repository/org/jetbrains/annotations/13.0/annotations-13.0.jar:/Users/jackxu/.m2/repository/org/bitcoinj/bitcoinj-core/0.16.1/bitcoinj-core-0.16.1.jar:/Users/jackxu/.m2/repository/org/bouncycastle/bcprov-jdk15to18/1.69/bcprov-jdk15to18-1.69.jar:/Users/jackxu/.m2/repository/com/google/guava/guava/31.0.1-android/guava-31.0.1-android.jar:/Users/jackxu/.m2/repository/com/google/guava/failureaccess/1.0.1/failureaccess-1.0.1.jar:/Users/jackxu/.m2/repository/com/google/guava/listenablefuture/9999.0-empty-to-avoid-conflict-with-guava/listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar:/Users/jackxu/.m2/repository/org/checkerframework/checker-qual/3.12.0/checker-qual-3.12.0.jar:/Users/jackxu/.m2/repository/org/checkerframework/checker-compat-qual/2.5.5/checker-compat-qual-2.5.5.jar:/Users/jackxu/.m2/repository/com/google/protobuf/protobuf-javalite/3.18.0/protobuf-javalite-3.18.0.jar:/Users/jackxu/.m2/repository/org/slf4j/slf4j-api/1.7.32/slf4j-api-1.7.32.jar:/Users/jackxu/.m2/repository/net/jcip/jcip-annotations/1.0/jcip-annotations-1.0.jar:/Users/jackxu/.m2/repository/io/grpc/grpc-all/1.45.1/grpc-all-1.45.1.jar:/Users/jackxu/.m2/repository/io/grpc/grpc-api/1.45.1/grpc-api-1.45.1.jar:/Users/jackxu/.m2/repository/io/grpc/grpc-auth/1.45.1/grpc-auth-1.45.1.jar:/Users/jackxu/.m2/repository/com/google/auth/google-auth-library-credentials/1.4.0/google-auth-library-credentials-1.4.0.jar:/Users/jackxu/.m2/repository/io/grpc/grpc-context/1.45.1/grpc-context-1.45.1.jar:/Users/jackxu/.m2/repository/io/grpc/grpc-core/1.45.1/grpc-core-1.45.1.jar:/Users/jackxu/.m2/repository/com/google/android/annotations/4.1.1.4/annotations-4.1.1.4.jar:/Users/jackxu/.m2/repository/org/codehaus/mojo/animal-sniffer-annotations/1.19/animal-sniffer-annotations-1.19.jar:/Users/jackxu/.m2/repository/io/perfmark/perfmark-api/0.23.0/perfmark-api-0.23.0.jar:/Users/jackxu/.m2/repository/io/grpc/grpc-grpclb/1.45.1/grpc-grpclb-1.45.1.jar:/Users/jackxu/.m2/repository/io/grpc/grpc-netty/1.45.1/grpc-netty-1.45.1.jar:/Users/jackxu/.m2/repository/io/netty/netty-codec-http2/4.1.72.Final/netty-codec-http2-4.1.72.Final.jar:/Users/jackxu/.m2/repository/io/netty/netty-common/4.1.72.Final/netty-common-4.1.72.Final.jar:/Users/jackxu/.m2/repository/io/netty/netty-buffer/4.1.72.Final/netty-buffer-4.1.72.Final.jar:/Users/jackxu/.m2/repository/io/netty/netty-transport/4.1.72.Final/netty-transport-4.1.72.Final.jar:/Users/jackxu/.m2/repository/io/netty/netty-resolver/4.1.72.Final/netty-resolver-4.1.72.Final.jar:/Users/jackxu/.m2/repository/io/netty/netty-codec/4.1.72.Final/netty-codec-4.1.72.Final.jar:/Users/jackxu/.m2/repository/io/netty/netty-handler/4.1.72.Final/netty-handler-4.1.72.Final.jar:/Users/jackxu/.m2/repository/io/netty/netty-tcnative-classes/2.0.46.Final/netty-tcnative-classes-2.0.46.Final.jar:/Users/jackxu/.m2/repository/io/netty/netty-codec-http/4.1.72.Final/netty-codec-http-4.1.72.Final.jar:/Users/jackxu/.m2/repository/io/netty/netty-handler-proxy/4.1.72.Final/netty-handler-proxy-4.1.72.Final.jar:/Users/jackxu/.m2/repository/io/netty/netty-codec-socks/4.1.72.Final/netty-codec-socks-4.1.72.Final.jar:/Users/jackxu/.m2/repository/io/grpc/grpc-okhttp/1.45.1/grpc-okhttp-1.45.1.jar:/Users/jackxu/.m2/repository/com/squareup/okhttp/okhttp/2.7.4/okhttp-2.7.4.jar:/Users/jackxu/.m2/repository/io/grpc/grpc-protobuf/1.45.1/grpc-protobuf-1.45.1.jar:/Users/jackxu/.m2/repository/com/google/api/grpc/proto-google-common-protos/2.0.1/proto-google-common-protos-2.0.1.jar:/Users/jackxu/.m2/repository/io/grpc/grpc-protobuf-lite/1.45.1/grpc-protobuf-lite-1.45.1.jar:/Users/jackxu/.m2/repository/io/grpc/grpc-rls/1.45.1/grpc-rls-1.45.1.jar:/Users/jackxu/.m2/repository/com/google/auto/value/auto-value-annotations/1.9/auto-value-annotations-1.9.jar:/Users/jackxu/.m2/repository/io/grpc/grpc-services/1.45.1/grpc-services-1.45.1.jar:/Users/jackxu/.m2/repository/io/grpc/grpc-stub/1.45.1/grpc-stub-1.45.1.jar:/Users/jackxu/.m2/repository/io/grpc/grpc-testing/1.45.1/grpc-testing-1.45.1.jar:/Users/jackxu/.m2/repository/junit/junit/4.12/junit-4.12.jar:/Users/jackxu/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/Users/jackxu/.m2/repository/io/grpc/grpc-xds/1.45.1/grpc-xds-1.45.1.jar:/Users/jackxu/.m2/repository/io/grpc/grpc-alts/1.45.1/grpc-alts-1.45.1.jar:/Users/jackxu/.m2/repository/org/conscrypt/conscrypt-openjdk-uber/2.5.1/conscrypt-openjdk-uber-2.5.1.jar:/Users/jackxu/.m2/repository/com/google/auth/google-auth-library-oauth2-http/1.4.0/google-auth-library-oauth2-http-1.4.0.jar:/Users/jackxu/.m2/repository/com/google/http-client/google-http-client/1.41.0/google-http-client-1.41.0.jar:/Users/jackxu/.m2/repository/org/apache/httpcomponents/httpclient/4.5.13/httpclient-4.5.13.jar:/Users/jackxu/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar:/Users/jackxu/.m2/repository/commons-codec/commons-codec/1.11/commons-codec-1.11.jar:/Users/jackxu/.m2/repository/org/apache/httpcomponents/httpcore/4.4.15/httpcore-4.4.15.jar:/Users/jackxu/.m2/repository/io/opencensus/opencensus-api/0.28.0/opencensus-api-0.28.0.jar:/Users/jackxu/.m2/repository/io/opencensus/opencensus-contrib-http-util/0.28.0/opencensus-contrib-http-util-0.28.0.jar:/Users/jackxu/.m2/repository/com/google/http-client/google-http-client-gson/1.41.0/google-http-client-gson-1.41.0.jar:/Users/jackxu/.m2/repository/com/google/re2j/re2j/1.5/re2j-1.5.jar:/Users/jackxu/.m2/repository/org/bouncycastle/bcpkix-jdk15on/1.67/bcpkix-jdk15on-1.67.jar:/Users/jackxu/.m2/repository/io/opencensus/opencensus-proto/0.2.0/opencensus-proto-0.2.0.jar:/Users/jackxu/.m2/repository/io/grpc/grpc-netty-shaded/1.45.1/grpc-netty-shaded-1.45.1.jar:/Users/jackxu/.m2/repository/com/google/protobuf/protobuf-java/3.20.0/protobuf-java-3.20.0.jar:/Users/jackxu/.m2/repository/com/google/protobuf/protobuf-java-util/3.20.0/protobuf-java-util-3.20.0.jar:/Users/jackxu/.m2/repository/com/google/errorprone/error_prone_annotations/2.5.1/error_prone_annotations-2.5.1.jar:/Users/jackxu/.m2/repository/com/google/j2objc/j2objc-annotations/1.3/j2objc-annotations-1.3.jar:/Users/jackxu/.m2/repository/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar:/Users/jackxu/.m2/repository/com/google/code/gson/gson/2.8.9/gson-2.8.9.jar:/Users/jackxu/.m2/repository/com/googlecode/protobuf-java-format/protobuf-java-format/1.4/protobuf-java-format-1.4.jar:/Users/jackxu/.m2/repository/org/web3j/crypto/5.0.0/crypto-5.0.0.jar:/Users/jackxu/.m2/repository/org/web3j/abi/5.0.0/abi-5.0.0.jar:/Users/jackxu/.m2/repository/org/web3j/rlp/5.0.0/rlp-5.0.0.jar:/Users/jackxu/.m2/repository/org/web3j/utils/5.0.0/utils-5.0.0.jar:/Users/jackxu/.m2/repository/org/bouncycastle/bcprov-jdk15on/1.65/bcprov-jdk15on-1.65.jar:/Users/jackxu/.m2/repository/org/projectlombok/lombok/1.18.22/lombok-1.18.22.jar:/Users/jackxu/.m2/repository/javax/annotation/javax.annotation-api/1.3.2/javax.annotation-api-1.3.2.jar:/Users/jackxu/.m2/repository/org/apache/commons/commons-collections4/4.4/commons-collections4-4.4.jar:/Users/jackxu/.m2/repository/com/madgag/spongycastle/core/1.51.0.0/core-1.51.0.0.jar:/Users/jackxu/.m2/repository/org/apache/commons/commons-lang3/3.6/commons-lang3-3.6.jar:/Users/jackxu/.m2/repository/com/alibaba/fastjson/1.2.58/fastjson-1.2.58.jar:/Users/jackxu/.m2/repository/com/fasterxml/jackson/datatype/jackson-datatype-joda/2.9.8/jackson-datatype-joda-2.9.8.jar:/Users/jackxu/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.9.0/jackson-annotations-2.9.0.jar:/Users/jackxu/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.12.5/jackson-core-2.12.5.jar:/Users/jackxu/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.12.5/jackson-databind-2.12.5.jar:/Users/jackxu/.m2/repository/joda-time/joda-time/2.10.1/joda-time-2.10.1.jar com.intellij.rt.junit.JUnitStarter -ideVersion5 -junit3 com.jeongen.cosmos.CosmosRestApiClientTest2,testSendMultiTx
+SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+address:cosmos12pyk5w4kuzh0kqyal4vlwy25hs9ejs230de592
+tx===body {
+  messages {
+    type_url: "/cosmos.bank.v1beta1.MsgSend"
+    value: "\n-cosmos12pyk5w4kuzh0kqyal4vlwy25hs9ejs230de592\022-cosmos1ywqs77fx7q4pcnjmn8arkmwscdmgu03etfxkqt\032\f\n\005uatom\022\003100"
+  }
+}
+auth_info {
+  signer_infos {
+    public_key {
+      type_url: "/cosmos.crypto.secp256k1.PubKey"
+      value: "\n!\002\371$\260\210\276\265\337\312\021*\364\002\334=\001% \370)\373\222\342\236\357t\202[\255\313\353\342\317"
+    }
+    mode_info {
+      single {
+        mode: SIGN_MODE_DIRECT
+      }
+    }
+    sequence: 1
+  }
+  fee {
+    amount {
+      denom: "uatom"
+      amount: "200"
+    }
+    gas_limit: 90000
+  }
+}
+signatures: "\005.k\332\314|\214\200o}gq\344\272\264rk41Og\273Z\353\335\225Q\266FG\261\v\017\312\273\020x\037f\375\225g2\367\266\016N\266\253\251P\232D^)\232\034\036E\274\301d\025\212"
+
+txResponse===txhash: "EC26AC24F03B7D9870637D977501B4D46C259A7FCB434C7CEFC7CE78433DB25E"
+raw_log: "[]"
+
+body {
+  messages {
+    type_url: "/cosmos.bank.v1beta1.MsgSend"
+    value: "\n-cosmos12pyk5w4kuzh0kqyal4vlwy25hs9ejs230de592\022-cosmos1ywqs77fx7q4pcnjmn8arkmwscdmgu03etfxkqt\032\f\n\005uatom\022\003100"
+  }
+}
+auth_info {
+  signer_infos {
+    public_key {
+      type_url: "/cosmos.crypto.secp256k1.PubKey"
+      value: "\n!\002\371$\260\210\276\265\337\312\021*\364\002\334=\001% \370)\373\222\342\236\357t\202[\255\313\353\342\317"
+    }
+    mode_info {
+      single {
+        mode: SIGN_MODE_DIRECT
+      }
+    }
+    sequence: 1
+  }
+  fee {
+    amount {
+      denom: "uatom"
+      amount: "200"
+    }
+    gas_limit: 90000
+  }
+}
+signatures: "\005.k\332\314|\214\200o}gq\344\272\264rk41Og\273Z\353\335\225Q\266FG\261\v\017\312\273\020x\037f\375\225g2\367\266\016N\266\253\251P\232D^)\232\034\036E\274\301d\025\212"
+
+
+Process finished with exit code 0

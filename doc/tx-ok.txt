@@ -1,0 +1,63 @@
+SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+address:cosmos12pyk5w4kuzh0kqyal4vlwy25hs9ejs230de592
+tx===body {
+  messages {
+    type_url: "/cosmos.bank.v1beta1.MsgSend"
+    value: "\n-cosmos12pyk5w4kuzh0kqyal4vlwy25hs9ejs230de592\022-cosmos1ywqs77fx7q4pcnjmn8arkmwscdmgu03etfxkqt\032\f\n\005uatom\022\003100"
+  }
+}
+auth_info {
+  signer_infos {
+    public_key {
+      type_url: "/cosmos.crypto.secp256k1.PubKey"
+      value: "\n!\002\371$\260\210\276\265\337\312\021*\364\002\334=\001% \370)\373\222\342\236\357t\202[\255\313\353\342\317"
+    }
+    mode_info {
+      single {
+        mode: SIGN_MODE_DIRECT
+      }
+    }
+  }
+  fee {
+    amount {
+      denom: "uatom"
+      amount: "100"
+    }
+    gas_limit: 80000
+  }
+}
+signatures: "\3317\332\025+OK\346q\tl~c\363.?\2217mNY\351q\275\267\371\271\305\016\364?\333]\021~\215\017*R\262\252\t/\313\3421\t\3029\225|\024W\t\\Nf\003*v5R\316m"
+
+txResponse===txhash: "E9DF783B60C1EA1F4EE67100EA8A12DE43BD0A2B40CF8315D753765A73683715"
+raw_log: "[]"
+
+body {
+  messages {
+    type_url: "/cosmos.bank.v1beta1.MsgSend"
+    value: "\n-cosmos12pyk5w4kuzh0kqyal4vlwy25hs9ejs230de592\022-cosmos1ywqs77fx7q4pcnjmn8arkmwscdmgu03etfxkqt\032\f\n\005uatom\022\003100"
+  }
+}
+auth_info {
+  signer_infos {
+    public_key {
+      type_url: "/cosmos.crypto.secp256k1.PubKey"
+      value: "\n!\002\371$\260\210\276\265\337\312\021*\364\002\334=\001% \370)\373\222\342\236\357t\202[\255\313\353\342\317"
+    }
+    mode_info {
+      single {
+        mode: SIGN_MODE_DIRECT
+      }
+    }
+  }
+  fee {
+    amount {
+      denom: "uatom"
+      amount: "100"
+    }
+    gas_limit: 80000
+  }
+}
+signatures: "\3317\332\025+OK\346q\tl~c\363.?\2217mNY\351q\275\267\371\271\305\016\364?\333]\021~\215\017*R\262\252\t/\313\3421\t\3029\225|\024W\t\\Nf\003*v5R\316m"
+

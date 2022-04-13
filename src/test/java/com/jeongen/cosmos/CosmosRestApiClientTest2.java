@@ -5,6 +5,7 @@ import com.jeongen.cosmos.vo.SendInfo;
 import cosmos.auth.v1beta1.QueryOuterClass;
 import cosmos.base.abci.v1beta1.Abci;
 import cosmos.tx.v1beta1.ServiceOuterClass;
+import cosmos.tx.v1beta1.TxOuterClass;
 import junit.framework.TestCase;
 import org.bouncycastle.util.encoders.Hex;
 import org.junit.Test;
@@ -43,9 +44,13 @@ public class CosmosRestApiClientTest2 extends TestCase  {
         System.out.println("address:" + credentials.getAddress());
         List<SendInfo> sendList = new ArrayList<>();
         sendList.add(SendInfo.builder().credentials(credentials).toAddress("cosmos1ywqs77fx7q4pcnjmn8arkmwscdmgu03etfxkqt").amountInAtom(new BigDecimal("0.0001")).build());
+        TxOuterClass.Tx tx = cosmosRestApiClient.getTxRequest(credentials, sendList,  new BigDecimal("0.0002"), 90000);
+        System.out.println("tx==="+tx);
+        Abci.TxResponse txResponse = cosmosRestApiClient.broadcastTx(tx);
+        System.out.println("txResponse==="+txResponse);
         // 生成、签名、广播交易
-        Abci.TxResponse txResponse = cosmosRestApiClient.sendMultiTx(credentials, sendList, new BigDecimal("0.000001"), 200000);
-        System.out.println(txResponse);
+//        Abci.TxResponse txResponse = cosmosRestApiClient.sendMultiTx(credentials, sendList, new BigDecimal("0.000001"), 200000);
+        System.out.println(tx);
     }
 
     public  void testQueryAccount() throws Exception {
@@ -55,6 +60,13 @@ public class CosmosRestApiClientTest2 extends TestCase  {
 
         System.out.println(res);
     }
+    public  void testGetTx() throws Exception {
+        CosmosRestApiClient cosmosRestApiClient = new CosmosRestApiClient(BaseUrl, "cosmoshub-4", "uatom");
+        // 获取指定高度的交易
+        ServiceOuterClass.GetTxResponse tx = cosmosRestApiClient.getTx("F62CFE77AA631F8B0B37FA1E77E3FA689725327BFC46EC42C84AFFBBBE496457");
+        System.out.println(tx);
+    }
+
 
     public  void testHeight() throws Exception {
         CosmosRestApiClient cosmosRestApiClient = new CosmosRestApiClient(BaseUrl, "cosmoshub-4", "uatom");

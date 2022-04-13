@@ -252,6 +252,29 @@ public class CosmosRestApiClient {
         return txResponse;
     }
 
+
+
+    public Abci.TxResponse broadcastTx(TxOuterClass.Tx tx) throws Exception {
+        ServiceOuterClass.BroadcastTxRequest broadcastTxRequest = ServiceOuterClass.BroadcastTxRequest.newBuilder()
+                .setTxBytes(tx.toByteString())
+                .setMode(ServiceOuterClass.BroadcastMode.BROADCAST_MODE_SYNC)
+                .build();
+
+        ServiceOuterClass.BroadcastTxResponse broadcastTxResponse = broadcastTx(broadcastTxRequest);
+
+        if (!broadcastTxResponse.hasTxResponse()) {
+            throw new Exception("broadcastTxResponse no body\n" + printer.print(tx));
+        }
+        Abci.TxResponse txResponse = broadcastTxResponse.getTxResponse();
+        if (txResponse.getCode() != 0 || !StringUtil.isNullOrEmpty(txResponse.getCodespace())) {
+            throw new Exception("BroadcastTx error:" + txResponse.getCodespace() + "," + txResponse.getCode() + "," + txResponse.getRawLog() + "\n" + printer.print(tx));
+        }
+        if (txResponse.getTxhash().length() != 64) {
+            throw new Exception("Txhash illegal\n" + printer.print(tx));
+        }
+        return txResponse;
+    }
+
     public TxOuterClass.SignerInfo getSignInfo(CosmosCredentials credentials, Map<String, Auth.BaseAccount> baseAccountCache) throws Exception {
         byte[] encodedPubKey = credentials.getEcKey().getPubKeyPoint().getEncoded(true);
         Keys.PubKey pubKey = Keys.PubKey.newBuilder()
