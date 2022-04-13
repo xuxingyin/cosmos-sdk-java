@@ -55,7 +55,7 @@ public class Crypto {
         byte[] entrophy = new byte[128/4];
         new SecureRandom().nextBytes(entrophy);
         try {
-            return Utils.join(MnemonicCode.INSTANCE.toMnemonic(entrophy));
+            return Utils.SPACE_JOINER.join(MnemonicCode.INSTANCE.toMnemonic(entrophy));
         } catch (MnemonicException.MnemonicLengthException e) {
             e.printStackTrace();
             return null;
@@ -64,7 +64,7 @@ public class Crypto {
 
     public static String generatePrivateKeyFromMnemonic(String mnemonic) {
         List<String> words = Splitter.on(" ").splitToList(mnemonic);
-        byte[] seed = MnemonicCode.INSTANCE.toSeed(words, "");
+        byte[] seed = MnemonicCode.toSeed(words, "");
         DeterministicKey key = HDKeyDerivation.createMasterPrivateKey(seed);
 
         List<ChildNumber> childNumbers = HDUtils.parsePath(EnvInstance.getEnv().GetHDPath());

@@ -6,14 +6,18 @@ import cosmos.base.abci.v1beta1.Abci;
 import cosmos.tx.v1beta1.ServiceOuterClass;
 import junit.framework.TestCase;
 import org.bouncycastle.util.encoders.Hex;
+import org.junit.Test;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CosmosRestApiClientTest extends TestCase {
-
-    public void testSendMultiTx() throws Exception {
+public class CosmosRestApiClientTest {
+    public static void main(String[] args) throws Exception {
+        testSendMultiTx();
+    }
+    @Test
+    public static void testSendMultiTx() throws Exception {
         CosmosRestApiClient cosmosRestApiClient = new CosmosRestApiClient("https://api.cosmos.network", "cosmoshub-4", "uatom");
         // 私钥生成公钥、地址
         byte[] privateKey = Hex.decode("c2ad7a31c06ea8bb560a0467898ef844523f2f804dec96fedf65906dbb951f24");
