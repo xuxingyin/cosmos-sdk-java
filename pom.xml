@@ -11,22 +11,6 @@
     <name>cosmos-sdk-java</name>
     <url>https://github.com/cloverzrg/cosmos-sdk-java</url>
     <description>The SDK integrates and implement all the functions required by the exchange to access Cosmos (ATOM)</description>
-    <developers>
-        <developer>
-            <name>Rungen Zhu</name>
-            <timezone>Asia/HongKong</timezone>
-            <email>cloverzrg@gmail.com</email>
-        </developer>
-    </developers>
-    <licenses>
-        <license>
-            <name>Apache License</name>
-            <url>https://github.com/cloverzrg/cosmos-sdk-java/blob/main/LICENSE</url>
-        </license>
-    </licenses>
-    <scm>
-        <url>https://github.com/cloverzrg/cosmos-sdk-java.git</url>
-    </scm>
 
     <dependencies>
         <dependency>
@@ -124,68 +108,9 @@
 
 
     <build>
-        <extensions>
-            <extension>
-                <groupId>kr.motd.maven</groupId>
-                <artifactId>os-maven-plugin</artifactId>
-                <version>1.6.2</version>
-            </extension>
-        </extensions>
+
         <plugins>
-            <plugin>
-                <groupId>org.sonatype.plugins</groupId>
-                <artifactId>nexus-staging-maven-plugin</artifactId>
-                <version>1.6.7</version>
-                <extensions>true</extensions>
-                <configuration>
-                    <serverId>ossrh</serverId>
-                    <nexusUrl>https://s01.oss.sonatype.org/</nexusUrl>
-                    <autoReleaseAfterClose>true</autoReleaseAfterClose>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-source-plugin</artifactId>
-                <version>2.2.1</version>
-                <executions>
-                    <execution>
-                        <id>attach-sources</id>
-                        <goals>
-                            <goal>jar-no-fork</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-javadoc-plugin</artifactId>
-                <version>2.9.1</version>
-                <configuration>
-                    <excludePackageNames>com.google.*:cosmos.*:ibc.*:ics23.*:tendermint.*:ics23:cosmos_proto</excludePackageNames>
-                </configuration>
-                <executions>
-                    <execution>
-                        <id>attach-javadocs</id>
-                        <goals>
-                            <goal>jar</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-gpg-plugin</artifactId>
-                <version>1.5</version>
-                <executions>
-                    <execution>
-                        <id>sign-artifacts</id>
-                        <phase>verify</phase>
-                        <goals>
-                            <goal>sign</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
+<!--
             <plugin>
                 <groupId>org.xolstice.maven.plugins</groupId>
                 <artifactId>protobuf-maven-plugin</artifactId>
@@ -206,7 +131,7 @@
                         </goals>
                     </execution>
                 </executions>
-            </plugin>
+            </plugin>-->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
