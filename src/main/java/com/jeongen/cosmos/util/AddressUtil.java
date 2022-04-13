@@ -1,6 +1,7 @@
 package com.jeongen.cosmos.util;
 
 import com.jeongen.cosmos.crypro.CosmosCredentials;
+import io.cosmos.crypto.Crypto;
 import io.netty.util.internal.StringUtil;
 import org.bitcoinj.core.Bech32;
 import org.bitcoinj.core.ECKey;
@@ -9,6 +10,7 @@ import org.bitcoinj.crypto.ChildNumber;
 import org.bitcoinj.crypto.DeterministicKey;
 import org.bitcoinj.wallet.DeterministicKeyChain;
 import org.bitcoinj.wallet.DeterministicSeed;
+import org.bouncycastle.util.encoders.Hex;
 
 import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
@@ -18,6 +20,38 @@ import java.util.List;
 public class AddressUtil {
 
     private static final String AddressHRP = "cosmos";
+
+    public static String generatePrivateKey() {
+        String priv = Crypto.generatePrivateKey();
+        byte[] pub = Crypto.generatePubKeyFromPriv(priv);
+        System.out.println("priv");
+        System.out.println(priv);
+        System.out.println("pubkey");
+        System.out.println(Hex.toHexString(pub));
+        return priv;
+        //priv
+        //d7c0e347f2941542012d528bc501cdddbc7204470d208c57a1e9b22901d5b9a8
+        //pubkey
+        //02f924b088beb5dfca112af402dc3d012520f829fb92e29eef74825badcbebe2cf
+//cosmos12pyk5w4kuzh0kqyal4vlwy25hs9ejs230de592
+
+//        priv
+//        51bf6cc0780cbdcd0d9cf2cddc67601f846d08e4c895134de3470c9098e50e0b
+//        pubkey
+//        03689aee52ed8f134db33f45f39c4f9b3fee6f6a0720e56690bff61271753f0312
+        //cosmos1ywqs77fx7q4pcnjmn8arkmwscdmgu03etfxkqt
+    }
+
+    public static String getAddress(String priv) {
+        byte[] pub = Crypto.generatePubKeyFromPriv(priv);
+        try {
+            String addr = io.cosmos.util.AddressUtil.createNewAddressSecp256k1(AddressHRP, pub);
+            return addr;
+        }catch (Exception e){
+            e.printStackTrace();
+            return null;
+        }
+    }
 
     public static String publicKeyToAddress(byte[] publicKey) {
         byte[] pubKeyHash = Utils.sha256hash160(publicKey);
