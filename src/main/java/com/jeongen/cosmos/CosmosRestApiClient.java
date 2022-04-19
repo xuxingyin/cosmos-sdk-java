@@ -72,6 +72,19 @@ public class CosmosRestApiClient {
         }
     }
 
+
+    public BigDecimal getBalanceInAtomAll(String address) throws Exception {
+        String path = String.format("/cosmos/bank/v1beta1/balances/%s", address);
+        QueryOuterClass.QueryAllBalancesResponse balanceResponse = client.get(path, QueryOuterClass.QueryAllBalancesResponse.class);
+        if (balanceResponse.getBalancesCount()>0) {
+            CoinOuterClass.Coin balances = balanceResponse.getBalances(0);
+            String amount = balances.getAmount();
+            return ATOMUnitUtil.microAtomToAtom(amount);
+        } else {
+            return BigDecimal.ZERO;
+        }
+    }
+
     public ServiceOuterClass.GetTxResponse getTx(String hash) throws Exception {
         String path = String.format("/cosmos/tx/v1beta1/txs/%s", hash);
         return client.get(path, ServiceOuterClass.GetTxResponse.class);
@@ -131,6 +144,7 @@ public class CosmosRestApiClient {
         throw new RuntimeException("account not found:" + address);
     }
 
+    //广播交易
     public ServiceOuterClass.BroadcastTxResponse broadcastTx(ServiceOuterClass.BroadcastTxRequest req) throws Exception {
         String reqBody = printer.print(req);
         ServiceOuterClass.BroadcastTxResponse broadcastTxResponse = client.post("/cosmos/tx/v1beta1/txs", reqBody, ServiceOuterClass.BroadcastTxResponse.class);
