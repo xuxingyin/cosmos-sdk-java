@@ -11,6 +11,7 @@ import cosmos.base.tendermint.v1beta1.Query;
 import cosmos.base.v1beta1.CoinOuterClass;
 import cosmos.tx.v1beta1.ServiceOuterClass;
 import cosmos.tx.v1beta1.TxOuterClass;
+import io.cosmos.msg.MsgSend;
 import junit.framework.TestCase;
 import org.bouncycastle.util.encoders.Hex;
 import org.junit.Test;
@@ -96,6 +97,7 @@ public class CosmosRestApiClientTest2 extends TestCase {
 
 
     public void testHeight() throws Exception {
+        List<Tx.MsgSend> msgSendList = new ArrayList<>();
         CosmosRestApiClient cosmosRestApiClient = new CosmosRestApiClient(BaseUrl, "cosmoshub-4", "uatom");
         // 获取指定高度的交易
         Query.GetBlockByHeightResponse blockByHeight = cosmosRestApiClient.getBlockByHeight(10099441L);
@@ -121,8 +123,10 @@ public class CosmosRestApiClientTest2 extends TestCase {
 
                     Long amount  = getLongValue(amountStr);
                     String denom = amountStr.replace(amount+"","").trim();
+                    Tx.MsgSend msgSend = Tx.MsgSend.newBuilder().setFromAddress(fromAddress).setToAddress(toAddress).addAmount(CoinOuterClass.Coin.newBuilder().setAmount(amount + "").setDenom(denom).build()).build();
 
                     System.out.println("fromAddress=" + fromAddress + "toAddress=" + toAddress + "amount=" + amount + denom);
+                    msgSendList.add(msgSend);
                 }
             }catch (Exception ex){
 
@@ -138,6 +142,7 @@ public class CosmosRestApiClientTest2 extends TestCase {
         ServiceOuterClass.GetTxsEventResponse txsEventByHeight = cosmosRestApiClient.getTxsEventByHeight(10099441L, "");
         System.out.println(txsEventByHeight.getTxsList());
         List<TxOuterClass.Tx> txsList = txsEventByHeight.getTxsList();
+
         for (TxOuterClass.Tx tx : txsList) {
             TxOuterClass.TxBody body = tx.getBody();
             List<Any> messagesList = body.getMessagesList();
@@ -153,6 +158,41 @@ public class CosmosRestApiClientTest2 extends TestCase {
                         System.out.println("fromAddress=" + fromAddress + "  toAddress=" + toAddress + " amount=" + amount + denom);
 
                     }
+                }
+            }
+
+        }
+    }
+
+    public void testHeightLog2() throws Exception {
+        CosmosRestApiClient cosmosRestApiClient = new CosmosRestApiClient(BaseUrl, "cosmoshub-4", "uatom");
+
+        ServiceOuterClass.GetTxsEventResponse txsEventByHeight = cosmosRestApiClient.getTxsEventByHeight(10099441L, "");
+//        System.out.println(txsEventByHeight.getTxsList());
+        System.out.println(txsEventByHeight.getTxResponsesList());
+        List<Abci.TxResponse> txResponsesList = txsEventByHeight.getTxResponsesList();
+
+        for (Abci.TxResponse tx : txResponsesList) {
+            int code = tx.getCode();
+            String txhash = tx.getTxhash();
+            List<Tx.MsgSend> msgSendList=new ArrayList<>();
+            Any any = tx.getTx();
+            TxOuterClass.Tx unpack = any.unpack(TxOuterClass.Tx.class);
+            List<Any> messagesList = unpack.getBody().getMessagesList();
+            for (Any any1 : messagesList) {
+                if (any1.getTypeUrl().contains("cosmos.bank.v1beta1.MsgSend")) {
+                    Tx.MsgSend msgSend = any1.unpack(Tx.MsgSend.class);
+                    String fromAddress = msgSend.getFromAddress();
+                    String toAddress = msgSend.getToAddress();
+                    List<CoinOuterClass.Coin> amountList = msgSend.getAmountList();
+                    for (CoinOuterClass.Coin coin : amountList) {
+                        String denom = coin.getDenom();
+                        String amount = coin.getAmount();
+                        System.out.println("fromAddress=" + fromAddress + "  toAddress=" + toAddress + " amount=" + amount + denom);
+
+                    }
+
+                    msgSendList.add(msgSend);
                 }
             }
 
@@ -177,6 +217,8 @@ public class CosmosRestApiClientTest2 extends TestCase {
         ServiceOuterClass.GetTxsEventResponse txsEventByHeight = cosmosRestApiClient.getTxsEventByHeight(10091547L, "");
         System.out.println(txsEventByHeight);
     }
+
+
 
     /**
      * 解析str，获得其中的整数
